@@ -1,0 +1,1094 @@
+/* =========================================
+   JEDY MUSIC KARAOKE
+   DISEÑO NEGRO + MORADO NEÓN
+========================================= */
+
+:root {
+    --fondo: #090711;
+    --superficie: #151020;
+    --superficie2: #211632;
+    --blanco: #ffffff;
+    --texto: #f7f1ff;
+    --gris: #a99bb9;
+    --morado: #a855f7;
+    --morado2: #792cff;
+    --rosado: #ed55c5;
+    --borde: #342348;
+    --neon: 0 0 22px #a855f755;
+}
+
+body:not(.dark) {
+    --fondo: #f6f2fc;
+    --superficie: #ffffff;
+    --superficie2: #eee6fa;
+    --texto: #251832;
+    --gris: #756780;
+    --borde: #e5d9f2;
+    --neon: 0 0 18px #a855f722;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'DM Sans', sans-serif;
+    transition: background .35s, color .35s;
+    min-height: 100vh;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    min-height: 78px;
+    padding: 12px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--fondo);
+    border-bottom: 1px solid var(--borde);
+    box-shadow: 0 5px 25px #0002;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.logo > span {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--morado2), var(--rosado));
+    color: white;
+    font-size: 25px;
+    box-shadow: var(--neon);
+}
+
+.logo b {
+    color: var(--morado);
+}
+
+.logo small {
+    display: block;
+    color: var(--gris);
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link {
+    background: transparent;
+    color: var(--gris);
+    border: none;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--morado);
+}
+
+.nav-link.active {
+    border-bottom: 2px solid var(--morado);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.theme-btn,
+.menu-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--borde);
+    background: var(--superficie);
+    color: var(--texto);
+    font-size: 20px;
+    transition: .3s;
+}
+
+.theme-btn:hover,
+.menu-btn:hover {
+    color: var(--morado);
+    box-shadow: var(--neon);
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* =========================================
+   PANTALLAS INDEPENDIENTES
+========================================= */
+
+.page {
+    display: none;
+    min-height: 75vh;
+    animation: aparecer .4s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   INICIO
+========================================= */
+
+.hero {
+    width: 86%;
+    max-width: 1400px;
+    margin: auto;
+    min-height: 550px;
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    align-items: center;
+    gap: 45px;
+    padding: 55px 0;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.etiqueta {
+    color: var(--morado);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(48px, 6vw, 82px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin: 22px 0;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, var(--morado), var(--rosado));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-text p {
+    max-width: 420px;
+    font-size: 14px;
+    color: var(--gris);
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 23px;
+    color: white;
+    background: linear-gradient(110deg, var(--morado2), var(--rosado));
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 10px;
+    box-shadow: var(--neon);
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px #a855f788;
+}
+
+.btn-light {
+    background: var(--superficie2);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    box-shadow: none;
+    margin-left: 8px;
+}
+
+/* =========================================
+   CARRUSEL
+========================================= */
+
+.hero-carousel {
+    position: relative;
+    height: 390px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 1px solid var(--borde);
+    box-shadow: 0 20px 55px #0005, var(--neon);
+}
+
+.carousel-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .8s ease, visibility .8s;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 30%, #100719e8);
+}
+
+.slide-caption {
+    position: absolute;
+    z-index: 2;
+    bottom: 45px;
+    left: 30px;
+    color: white;
+}
+
+.slide-caption h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 30px;
+}
+
+.slide-caption p {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.carousel-btn {
+    position: absolute;
+    z-index: 5;
+    top: 45%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ffffff80;
+    background: #171020bb;
+    color: white;
+    font-size: 17px;
+}
+
+.carousel-btn:hover {
+    background: var(--morado2);
+}
+
+.carousel-btn.prev {
+    left: 12px;
+}
+
+.carousel-btn.next {
+    right: 12px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    z-index: 5;
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-dots button {
+    width: 9px;
+    height: 9px;
+    border: none;
+    border-radius: 20px;
+    background: #ffffff80;
+}
+
+.carousel-dots button.active {
+    width: 25px;
+    background: white;
+}
+
+/* =========================================
+   ACCESOS RÁPIDOS
+========================================= */
+
+.quick-access {
+    width: 86%;
+    max-width: 1400px;
+    margin: 0 auto 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.quick-card {
+    width: 100%;
+    padding: 24px;
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    background: var(--superficie);
+    color: var(--texto);
+    text-align: left;
+    font-weight: 700;
+    transition: .3s;
+    box-shadow: 0 10px 30px #0002;
+}
+
+.quick-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--morado);
+    box-shadow: var(--neon);
+}
+
+/* =========================================
+   TÍTULOS Y SECCIONES
+========================================= */
+
+.section,
+.songs-section,
+.booking-section {
+    min-height: 75vh;
+    padding: 75px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin: 15px auto 45px;
+}
+
+.section-title h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(27px, 4vw, 40px);
+    margin: 12px 0;
+}
+
+.section-title p {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+/* =========================================
+   TARJETAS DE CABINAS
+========================================= */
+
+.cards {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.cabin-card {
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px #0003;
+    transition: .3s;
+}
+
+.cabin-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--morado);
+    box-shadow: var(--neon);
+}
+
+.cabin-img {
+    height: 180px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.cabin-img > span {
+    font-size: 70px;
+    color: white;
+    text-shadow: 0 0 25px white;
+}
+
+.purple {
+    background: linear-gradient(135deg, #32115d, #922fff);
+}
+
+.pink {
+    background: linear-gradient(135deg, #60134f, #e747ad);
+}
+
+.blue {
+    background: linear-gradient(135deg, #162d61, #6e56cf);
+}
+
+.available,
+.reserved {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    background: white;
+    color: #16875c;
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+.reserved {
+    color: #d3425f;
+}
+
+.card-content {
+    padding: 23px;
+}
+
+.card-content h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 21px;
+}
+
+.card-content p {
+    font-size: 12px;
+    color: var(--gris);
+    margin: 12px 0 20px;
+    line-height: 1.6;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-footer strong {
+    font-size: 20px;
+}
+
+.card-footer small {
+    color: var(--gris);
+    font-size: 10px;
+}
+
+.choose {
+    background: var(--morado2);
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 22px;
+    font-size: 11px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.choose:hover {
+    box-shadow: var(--neon);
+    transform: scale(1.04);
+}
+
+.choose:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.note {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    color: var(--gris);
+    font-size: 11px;
+}
+
+/* =========================================
+   CANCIONES
+========================================= */
+
+.songs-section {
+    background: var(--fondo);
+}
+
+.song-box {
+    width: min(750px, 100%);
+    margin: auto;
+    padding: 28px;
+    border: 1px solid var(--borde);
+    border-radius: 22px;
+    background: var(--superficie);
+    box-shadow: 0 15px 40px #0003;
+}
+
+#searchSong {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    background: var(--fondo);
+    color: var(--texto);
+    outline: none;
+}
+
+#searchSong:focus {
+    border-color: var(--morado);
+    box-shadow: var(--neon);
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 22px 0;
+}
+
+.filter {
+    padding: 10px 17px;
+    border: 1px solid var(--borde);
+    border-radius: 25px;
+    background: var(--superficie2);
+    color: var(--gris);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.filter.active {
+    background: var(--morado2);
+    color: white;
+    border-color: var(--morado);
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 7px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.song > span:first-child {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--superficie2);
+    color: var(--morado);
+}
+
+.song div {
+    flex: 1;
+}
+
+.song b,
+.song small {
+    display: block;
+}
+
+.song b {
+    font-size: 13px;
+}
+
+.song small {
+    color: var(--gris);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+#noSongs {
+    text-align: center;
+    color: var(--gris);
+    padding: 25px;
+    font-size: 13px;
+}
+
+/* =========================================
+   PROMOCIONES
+========================================= */
+
+.promo {
+    padding: 28px;
+    border-radius: 20px;
+    min-height: 250px;
+    color: white;
+    transition: .3s;
+}
+
+.promo:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 0 30px #a855f755;
+}
+
+.promo > span {
+    display: block;
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.promo > small {
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.promo h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    margin: 13px 0;
+}
+
+.promo p {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.promo a {
+    font-size: 12px;
+    font-weight: 800;
+    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+}
+
+/* =========================================
+   RESERVAS
+========================================= */
+
+.booking-section {
+    background: var(--fondo);
+}
+
+.booking-form {
+    width: min(520px, 100%);
+    margin: auto;
+    padding: 32px;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 22px;
+    box-shadow: 0 15px 45px #0003;
+}
+
+.booking-form label {
+    display: block;
+    margin: 17px 0 8px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    padding: 14px;
+    background: var(--fondo);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 11px;
+    outline: none;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+    border-color: var(--morado);
+    box-shadow: var(--neon);
+}
+
+.error {
+    display: block;
+    min-height: 15px;
+    color: #ff6387;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.invalid {
+    border-color: #ff426b !important;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    margin-top: 18px;
+    border-top: 1px solid var(--borde);
+}
+
+.total strong {
+    color: var(--morado);
+    font-size: 25px;
+}
+
+.submit-btn {
+    width: 100%;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: var(--superficie);
+    text-align: center;
+    padding: 45px 15px;
+    border-top: 1px solid var(--borde);
+}
+
+.footer-logo {
+    color: var(--morado);
+    font-family: 'Outfit', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: var(--gris);
+    font-size: 12px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 22px 0;
+}
+
+.social a {
+    color: var(--morado);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.social a:hover {
+    color: var(--rosado);
+}
+
+footer > small {
+    color: var(--gris);
+    font-size: 10px;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    place-items: center;
+    padding: 15px;
+    background: #080510e8;
+}
+
+.modal-content {
+    width: min(430px, 100%);
+    padding: 32px;
+    position: relative;
+    text-align: center;
+    border-radius: 22px;
+    background: var(--superficie);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    box-shadow: 0 0 40px #a855f755;
+}
+
+.modal-icon {
+    font-size: 50px;
+    margin-bottom: 12px;
+}
+
+.modal-content h2 {
+    font-family: 'Outfit', sans-serif;
+}
+
+.modal-content > p {
+    color: var(--gris);
+    font-size: 12px;
+    margin: 12px 0;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: var(--superficie2);
+    color: var(--texto);
+    font-size: 20px;
+}
+
+.summary {
+    padding: 18px;
+    margin: 20px 0;
+    text-align: left;
+    border-radius: 13px;
+    background: var(--superficie2);
+}
+
+.summary p {
+    padding: 7px 0;
+    font-size: 12px;
+}
+
+.summary h3 {
+    padding-top: 13px;
+    margin-top: 10px;
+    border-top: 1px solid var(--borde);
+    color: var(--morado);
+}
+
+#timer {
+    color: var(--rosado);
+    font-size: 18px;
+}
+
+.modal-content .btn {
+    width: 100%;
+}
+
+.toast {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    top: 95px;
+    right: 20px;
+    max-width: 340px;
+    padding: 17px 22px;
+    background: var(--superficie2);
+    color: var(--texto);
+    border: 1px solid var(--morado);
+    border-radius: 13px;
+    box-shadow: var(--neon);
+    font-size: 12px;
+}
+
+/* =========================================
+   MODO OSCURO: AJUSTES
+========================================= */
+
+body.dark .navbar {
+    background: #090711;
+}
+
+body.dark footer {
+    background: #100b19;
+}
+
+body.dark .songs-section,
+body.dark .booking-section {
+    background: #0d0915;
+}
+
+body.dark .quick-card,
+body.dark .cabin-card,
+body.dark .song-box,
+body.dark .booking-form,
+body.dark .modal-content {
+    background: #171020;
+    color: white;
+}
+
+body.dark .nav-link {
+    color: #b9a9cc;
+}
+
+body.dark .nav-link.active {
+    color: #c18aff;
+}
+
+body.dark .theme-btn {
+    background: #261638;
+    color: #f5c7ff;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 12px 4%;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    .nav-link {
+        padding: 9px;
+        font-size: 10px;
+    }
+
+    .hero {
+        width: 90%;
+        gap: 25px;
+    }
+
+    .quick-access {
+        width: 90%;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        min-height: 70px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 4%;
+        width: 92%;
+        padding: 15px;
+        background: var(--superficie);
+        border: 1px solid var(--borde);
+        border-radius: 15px;
+        box-shadow: 0 15px 30px #0005;
+        flex-direction: column;
+        align-items: stretch;
+        z-index: 80;
+    }
+
+    .nav-link {
+        text-align: left;
+        width: 100%;
+        padding: 13px;
+        font-size: 12px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 45px 0;
+        gap: 30px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .hero-carousel {
+        height: 270px;
+    }
+
+    .slide-caption h3 {
+        font-size: 22px;
+    }
+
+    .quick-access {
+        grid-template-columns: 1fr;
+        margin-bottom: 40px;
+    }
+
+    .section,
+    .songs-section,
+    .booking-section {
+        padding: 50px 5%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .song-box {
+        padding: 16px;
+    }
+
+    .booking-form {
+        padding: 22px;
+    }
+
+    .btn-light {
+        margin-left: 0;
+    }
+
+    .hero-text .btn {
+        margin-right: 5px;
+    }
+
+    .social {
+        gap: 15px;
+    }
+
+}

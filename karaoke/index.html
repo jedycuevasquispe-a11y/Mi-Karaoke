@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jedy Music Karaoke</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="#inicio" class="logo">
+        <span>♫</span>
+        <div>JEDY <b>MUSIC</b>
+            <small>KARAOKE BAR</small>
+        </div>
+    </a>
+
+    <nav id="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#cabinas">Cabinas</a>
+        <a href="#canciones">Canciones</a>
+        <a href="#promociones">Promociones</a>
+        <a href="#reservas">Reservar</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <button id="themeToggle" class="theme-btn">☾</button>
+        <button id="menuBtn" class="menu-btn">☰</button>
+    </div>
+</header>
+
+<main>
+
+<!-- INICIO -->
+<section class="hero" id="inicio">
+    <div class="hero-text">
+        <span class="etiqueta">♫ TU ESCENARIO TE ESPERA</span>
+
+        <h1>Tu voz.<br>
+            <span>Tu momento.</span>
+        </h1>
+
+        <p>
+            Canta tus canciones favoritas, comparte con tus amigos
+            y convierte cada noche en un recuerdo inolvidable.
+        </p>
+
+        <a href="#cabinas" class="btn">Explorar cabinas →</a>
+        <a href="#canciones" class="btn btn-light">Ver canciones</a>
+    </div>
+
+    <div class="hero-image">
+        <div class="mic-circle">🎤</div>
+        <span class="music-note">♫</span>
+        <span class="music-note note2">♪</span>
+        <div class="hero-label">★ QUE COMIENCE EL SHOW</div>
+    </div>
+</section>
+
+<!-- ACCESOS RÁPIDOS -->
+<section class="quick-access">
+    <a href="#cabinas" class="quick-card">
+        <span>🎤</span>
+        <div>
+            <h3>Cabinas</h3>
+            <p>Consulta espacios libres</p>
+        </div>
+        <b>↗</b>
+    </a>
+
+    <a href="#canciones" class="quick-card">
+        <span>🎵</span>
+        <div>
+            <h3>Canciones</h3>
+            <p>Busca tu favorita</p>
+        </div>
+        <b>↗</b>
+    </a>
+
+    <a href="#promociones" class="quick-card">
+        <span>🎁</span>
+        <div>
+            <h3>Promociones</h3>
+            <p>Descubre nuestras ofertas</p>
+        </div>
+        <b>↗</b>
+    </a>
+</section>
+
+<!-- CABINAS -->
+<section class="section" id="cabinas">
+    <div class="section-title">
+        <span class="etiqueta">ELIGE TU ESPACIO</span>
+        <h2>Nuestras cabinas</h2>
+        <p>Encuentra el lugar perfecto para disfrutar y cantar.</p>
+    </div>
+
+    <div class="cards">
+
+        <article class="cabin-card">
+            <div class="cabin-img purple">
+                <span>♫</span>
+                <label class="available">● Disponible</label>
+            </div>
+
+            <div class="card-content">
+                <h3>Cabina Duo</h3>
+                <p>Ideal para parejas o grupos pequeños.</p>
+                <div class="card-footer">
+                    <strong>Bs 40 <small>/ hora</small></strong>
+                    <button class="choose" data-price="40"
+                        data-name="Cabina Duo">Elegir</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="cabin-card">
+            <div class="cabin-img pink">
+                <span>♫</span>
+                <label class="available">● Disponible</label>
+            </div>
+
+            <div class="card-content">
+                <h3>Cabina Friends</h3>
+                <p>Perfecta para compartir con amigos.</p>
+                <div class="card-footer">
+                    <strong>Bs 60 <small>/ hora</small></strong>
+                    <button class="choose" data-price="60"
+                        data-name="Cabina Friends">Elegir</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="cabin-card">
+            <div class="cabin-img blue">
+                <span>♫</span>
+                <label class="reserved">● Reservada</label>
+            </div>
+
+            <div class="card-content">
+                <h3>Cabina VIP</h3>
+                <p>Un espacio especial para celebraciones.</p>
+                <div class="card-footer">
+                    <strong>Bs 85 <small>/ hora</small></strong>
+                    <button disabled class="choose">Ocupada</button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+    <p class="note">* Disponibilidad y precios de demostración académica.</p>
+</section>
+
+<!-- CANCIONES -->
+<section class="songs-section" id="canciones">
+    <div class="section-title">
+        <span class="etiqueta">NUESTRO CATÁLOGO</span>
+        <h2>Encuentra tu canción favorita</h2>
+        <p>Busca por nombre o artista y selecciona una categoría.</p>
+    </div>
+
+    <div class="song-box">
+
+        <input type="search" id="searchSong"
+            placeholder="🔍 Buscar canción o artista...">
+
+        <div class="filters">
+            <button class="filter active" data-filter="Todas">Todas</button>
+            <button class="filter" data-filter="Romántica">Románticas</button>
+            <button class="filter" data-filter="Pop">Pop</button>
+            <button class="filter" data-filter="Clásicos">Clásicos</button>
+        </div>
+
+        <div id="songList">
+
+            <div class="song" data-category="Romántica"
+                data-search="un siglo sin ti chayanne">
+                <span>▶</span>
+                <div><b>Un siglo sin ti</b><small>Chayanne</small></div>
+                <small>4:40</small>
+            </div>
+
+            <div class="song" data-category="Romántica"
+                data-search="historia de taxi ricardo arjona">
+                <span>▶</span>
+                <div><b>Historia de taxi</b><small>Ricardo Arjona</small></div>
+                <small>6:12</small>
+            </div>
+
+            <div class="song" data-category="Romántica"
+                data-search="tiempo de vals chayanne">
+                <span>▶</span>
+                <div><b>Tiempo de vals</b><small>Chayanne</small></div>
+                <small>4:22</small>
+            </div>
+
+            <div class="song" data-category="Pop"
+                data-search="ojos asi shakira">
+                <span>▶</span>
+                <div><b>Ojos así</b><small>Shakira</small></div>
+                <small>3:58</small>
+            </div>
+
+            <div class="song" data-category="Pop"
+                data-search="someone like you adele">
+                <span>▶</span>
+                <div><b>Someone Like You</b><small>Adele</small></div>
+                <small>4:45</small>
+            </div>
+
+            <div class="song" data-category="Clásicos"
+                data-search="billie jean michael jackson">
+                <span>▶</span>
+                <div><b>Billie Jean</b><small>Michael Jackson</small></div>
+                <small>4:54</small>
+            </div>
+
+            <div class="song" data-category="Clásicos"
+                data-search="la vida es un carnaval celia cruz">
+                <span>▶</span>
+                <div><b>La vida es un carnaval</b><small>Celia Cruz</small></div>
+                <small>4:38</small>
+            </div>
+
+            <div class="song" data-category="Pop"
+                data-search="viva la vida coldplay">
+                <span>▶</span>
+                <div><b>Viva la vida</b><small>Coldplay</small></div>
+                <small>4:02</small>
+            </div>
+
+        </div>
+
+        <p id="noSongs" hidden>No se encontraron canciones.</p>
+    </div>
+</section>
+
+<!-- PROMOCIONES -->
+<section class="section" id="promociones">
+    <div class="section-title">
+        <span class="etiqueta">DISFRUTA MÁS</span>
+        <h2>Promociones especiales</h2>
+        <p>Tenemos algo especial para cada ocasión.</p>
+    </div>
+
+    <div class="cards">
+        <article class="promo purple">
+            <span>🎉</span>
+            <small>PARA COMPARTIR</small>
+            <h3>Noche de amigos</h3>
+            <p>Reserva dos horas en Cabina Friends y recibe una jarra de refresco.</p>
+            <a href="#reservas">Consultar →</a>
+        </article>
+
+        <article class="promo pink">
+            <span>🎂</span>
+            <small>DÍA ESPECIAL</small>
+            <h3>Cumpleaños con ritmo</h3>
+            <p>Ven a celebrar tu cumpleaños y disfruta de una experiencia especial.</p>
+            <a href="#reservas">Consultar →</a>
+        </article>
+
+        <article class="promo blue">
+            <span>🎶</span>
+            <small>PARA CANTAR</small>
+            <h3>Hora extra</h3>
+            <p>Consulta nuestros horarios con promociones especiales.</p>
+            <a href="#reservas">Consultar →</a>
+        </article>
+    </div>
+    <p class="note">* Promociones de ejemplo para el proyecto.</p>
+</section>
+
+<!-- RESERVAS -->
+<section class="booking-section" id="reservas">
+    <div class="section-title">
+        <span class="etiqueta">HAZ TU RESERVA</span>
+        <h2>Reserva tu cabina</h2>
+        <p>Completa tus datos y calcula el precio de tu reserva.</p>
+    </div>
+
+    <form id="bookingForm" class="booking-form" novalidate>
+
+        <label for="name">Nombre completo</label>
+        <input type="text" id="name" placeholder="Escribe tu nombre">
+        <small class="error" id="nameError"></small>
+
+        <label for="phone">Número de celular</label>
+        <input type="tel" id="phone" maxlength="8"
+            placeholder="Ej. 71234567">
+        <small class="error" id="phoneError"></small>
+
+        <label for="cabin">Selecciona tu cabina</label>
+        <select id="cabin">
+            <option value="">Selecciona una opción</option>
+            <option value="40">Cabina Duo - Bs 40</option>
+            <option value="60">Cabina Friends - Bs 60</option>
+        </select>
+        <small class="error" id="cabinError"></small>
+
+        <label for="hours">Cantidad de horas</label>
+        <input type="number" id="hours" min="1" max="6" value="1">
+        <small class="error" id="hoursError"></small>
+
+        <div class="total">
+            <span>Total estimado:</span>
+            <strong>Bs <b id="total">0</b></strong>
+        </div>
+
+        <button type="submit" class="btn submit-btn">
+            Continuar con reserva →
+        </button>
+
+        <p class="note">Formulario demostrativo. No realiza cobros.</p>
+    </form>
+</section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer>
+    <div class="footer-logo">♫ JEDY MUSIC KARAOKE</div>
+    <p>Tu voz merece su propio escenario.</p>
+
+    <div class="social">
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+        <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+    </div>
+
+    <small>© 2026 Jedy Music Karaoke | Proyecto Diseño Web II</small>
+</footer>
+
+<!-- VENTANA MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <button id="closeModal" class="close">×</button>
+
+        <div class="modal-icon">🎤</div>
+        <h2>Confirma tu reserva</h2>
+        <p>Revisa los datos antes de confirmar.</p>
+
+        <div class="summary">
+            <p>Nombre: <b id="resName"></b></p>
+            <p>Cabina: <b id="resCabin"></b></p>
+            <p>Horas: <b id="resHours"></b></p>
+            <h3>Total: Bs <span id="resTotal"></span></h3>
+        </div>
+
+        <p>Tiempo restante: <strong id="timer">00:30</strong></p>
+
+        <button id="confirmBtn" class="btn">Confirmar reserva ✓</button>
+        <button id="cancelBtn" class="btn btn-light">Cancelar</button>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+</body>
+</html>
